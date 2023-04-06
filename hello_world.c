@@ -38,4 +38,3 @@ int main() {
             vysledek=(float)cisloA/(float)cisloB;
             printf("vysledek je %f", vysledek);
             break;
-        default:
