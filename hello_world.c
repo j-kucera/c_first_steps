@@ -1,54 +1,41 @@
-// convertTemperature.c
-// Chapter 5
-// Learn C Programming
-//
-// Program to convert temperature values
-// to and from Celsius and Fahrenheit.
-//
-// Note how we test our functions's correct
-// calculations.
-//
-// Compile with:
-//
-//    cc convertTemperature.c -o convertTemperature -Wall -Werror -std=c11
-//
-
-
 #include <stdio.h>
 
-double celsiusToFahrenheit( double degreesC );
-double fahrenheitToCelsius( double degreesF );
+int main() {
+    printf("Jednoducha kalkulacka\n");
+    printf("*********************\n");
 
-int main( void )
-{
-    int c = 0;
-    int f = 32;
-    printf( "%4d Celsius    is %4d Fahrenheit\n" , c , (int)celsiusToFahrenheit( c ) );
-    printf( "%4d Fahrenheit is %4d Celsius\n\n"  , f , (int)fahrenheitToCelsius( f ) );
+    printf("vyber druh aritmeticke operace:\n");
+    printf("scitani:\n");
+    printf("odcitani:\n");
+    printf("nasobeni:\n");
+    printf("deleni:\n");
 
-    c = 100;
-    f = 212;
-    printf( "%4d Celsius    is %4d Fahrenheit\n" , c , (int)celsiusToFahrenheit( c ) );
-    printf( "%4d Fahrenheit is %4d Celsius\n\n"  , f , (int)fahrenheitToCelsius( f ) );
+    char operace = 0;
+    int cisloA=0, cisloB=0;
+    float vysledek=0;
 
-    c = f = 50;
-    printf( "%4d Celsius    is %4d Fahrenheit\n" , c , (int)celsiusToFahrenheit( c ) );
-    printf( "%4d Fahrenheit is %4d Celsius\n\n"  , f , (int)fahrenheitToCelsius( f ) );
-    return 0;
-}
+    operace = getchar();
+    printf("zadej prvni cislo:");
+    scanf("%d", &cisloA);
+    printf("zadej druhe cislo:");
+    scanf("%d", &cisloB);
 
-
-double celsiusToFahrenheit( double degreesC )
-{
-    double degreesF = (degreesC * 9.0 / 5.0 ) + 32;
-    return degreesF;
-}
-
-
-double fahrenheitToCelsius( double degreesF )
-{
-    double degreesC = (degreesF - 32 ) * 5.0 / 9.0 ;
-    return degreesC;
-}
-
-//  eof
+    switch (operace)
+    {
+        case '+':
+            vysledek=cisloA+cisloB;
+            printf("vysledek je %f", vysledek);
+            break;
+        case '-':
+            vysledek=cisloA-cisloB;
+            printf("vysledek je %f", vysledek);
+            break;
+        case '*':
+            vysledek=cisloA*cisloB;
+            printf("vysledek je %f", vysledek);
+            break;
+        case '/':
+            vysledek=(float)cisloA/(float)cisloB;
+            printf("vysledek je %f", vysledek);
+            break;
+        default:
